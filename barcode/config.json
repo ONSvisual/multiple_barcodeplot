@@ -1,0 +1,58 @@
+{
+    "essential" : {
+            "graphic_data_url": "data.csv",        
+            "sourceText":["The spatial distribution of industries in Great Britain: 2015"],
+            "sourceURL":["https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/employmentandemployeetypes/articles/thespatialdistributionofindustriesingreatbritain/2015"],
+			"chartTitles":[
+				"Care home beds",
+				"Adult social care jobs",
+				"Adult home care received",
+				"Adult day care attended",
+				"Unpaid care",
+				"Satistfaction with care"
+			],
+			"chartUnits":[
+				": % for aged 75 and over",
+				": per 100,000 population aged 18+",
+				": per 100,000 population aged 18+",
+				": per 100,000 population aged 18+",
+				": number of unpaid care providers?",
+				": % extremely or very satisfied"
+			],
+			"dataFormats":[
+				".1f",
+				",.0f",
+				",.0f",
+				".0f",
+				",.0f",
+				".3p"
+			],
+            "barHeight_sm_md_lg" : [70,70,70],                
+            "xAxisLabel":"",
+			"xAxisScales":[
+				[0,22],
+				[1000,26000],
+				[280,2500],
+				[0,850],
+				[7000,18000],
+				[0.45,0.90]	
+			]
+                     
+    },
+    "optional" : {
+            "margin_sm": [20, 0, 20, 0],
+            "margin_md": [20, 0, 20, 0],
+            "margin_lg": [20, 0, 20, 0],
+
+            "aspectRatio_sm" : [1,1],
+            "aspectRatio_md" : [1,1],
+            "aspectRatio_lg" : [1,1],
+        
+            "mobileBreakpoint" : 550, 
+                           
+            "x_num_ticks_sm_md_lg" : [0,0,0]
+           
+    }
+}
+
+
