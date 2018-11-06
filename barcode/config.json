@@ -1,6 +1,6 @@
 {
     "essential" : {
-            "graphic_data_url": "data.csv",        
+            "graphic_data_url": "data.csv",
             "sourceText":["The spatial distribution of industries in Great Britain: 2015"],
             "sourceURL":["https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/employmentandemployeetypes/articles/thespatialdistributionofindustriesingreatbritain/2015"],
 			"chartTitles":[
@@ -27,17 +27,17 @@
 				",.0f",
 				".3p"
 			],
-            "barHeight_sm_md_lg" : [70,70,70],                
-            "xAxisLabel":"",
+      "height_sm_md_lg" : [70,70,70],
+      "xAxisLabel":"",
 			"xAxisScales":[
 				[0,30],
 				[1000,34000],
 				[280,3000],
 				[0,1150],
 				[7000,22000],
-				[0.45,1.06]	
+				[0.45,1.06]
 			]
-                     
+
     },
     "optional" : {
             "margin_sm": [20, 0, 20, 0],
@@ -47,12 +47,10 @@
             "aspectRatio_sm" : [1,1],
             "aspectRatio_md" : [1,1],
             "aspectRatio_lg" : [1,1],
-        
-            "mobileBreakpoint" : 550, 
-                           
+
+            "mobileBreakpoint" : 550,
+
             "x_num_ticks_sm_md_lg" : [0,0,0]
-           
+
     }
 }
-
-

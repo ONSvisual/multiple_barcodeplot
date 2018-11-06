@@ -12,7 +12,7 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 
     <link rel="stylesheet" href="../lib/globalStyle.css" />
-    <link rel="stylesheet" href="../lib/jquery-ui-1.10.4.custom.min.css">       
+    <link rel="stylesheet" href="../lib/jquery-ui-1.10.4.custom.min.css">
     <link rel="stylesheet" href="../lib/style-chosen.css"/>
 
     <style type="text/css">
@@ -20,29 +20,29 @@
 			max-width:700px;
 			margin:0px auto;
 		}
-		
+
 		.englandText{
 			font-size:12px;
 			fill:#2c71b8;
 		}
-		
+
 		.selectedareaText{
 			font-size:12px;
 			fill:#e65c00;
 		}
-		
+
 		.chartTitle{
 			font-size: 12px;
 			font-weight:600;
 		}
-		
+
 		tspan {
 			font-size: 12px;
 			margin-left: 5px;
 			font-weight:400;
 			color: #999;
 		}
-		
+
     </style>
 
     <script>
@@ -85,11 +85,11 @@
 			function createStructure(){
 				var areacodes =  graphic_data.map(function(d) { return d.AREACD; });
 				var areanames =  graphic_data.map(function(d) { return d.AREANM; });
-				var menuarea = d3.zip(areanames,areacodes).sort(function(a, b){ 
-									return d3.ascending(a[0], b[0]); 
+				var menuarea = d3.zip(areanames,areacodes).sort(function(a, b){
+									return d3.ascending(a[0], b[0]);
 								});
 				d3.select("#selectNav").selectAll("*").remove();
-				
+
 				// Build option menu for occupations
 				var optns = d3.select("#selectNav")
 							.append("div")
@@ -102,20 +102,20 @@
 									return "width:99%"
 								} else {
 									return "width:300px"
-								}	
+								}
 							})
 							.attr("class","chosen-select");
 
 				optns.append("option")
 					.attr("value",null)
 					.text("");
-	
+
 				optns.selectAll("p")
 					.data(menuarea)
 					.enter()
 					.append("option")
-					.filter(function(d,i){ 
-						if(d[1] != "England"){ 
+					.filter(function(d,i){
+						if(d[1] != "England"){
 							return d;
 						}
 					})
@@ -129,8 +129,8 @@
 						if(typeof params != 'undefined') {
 							filtereddata = graphic_data.filter(function(d) {
 								return d.AREACD == params.selected;
-							});	
-							
+							});
+
 							highlight(filtereddata[0])
 							d3.select("#graphic").style("pointer-events", "none")
 						} else {
@@ -138,7 +138,7 @@
 							unhighlight();
 						}
 					})
-				   
+
 				d3.select("#graphic").selectAll("*").remove();
 
 				headers = d3.select("#graphic").selectAll("div")
@@ -147,53 +147,53 @@
 						.append("div")
 						.attr("class", "graphic")
 						.attr("id", function(d,i){
-							return names[i];	
+							return names[i];
 						})
 						.append("div")
 						.attr("class", "chartTitle")
 						.append("text")
 						.text(function(d,i){
-							return dvc.essential.chartTitles[i];	
+							return dvc.essential.chartTitles[i];
 						})
 						.append("tspan")
 						.text(function(d,i){
-							return dvc.essential.chartUnits[i];	
-						})		
+							return dvc.essential.chartUnits[i];
+						})
 
 				drawGraphic(names)
 
 			}//end createStructure()
-			
+
 		function drawGraphic(names,i){
 			 var threshold_md = 788;
 			 var threshold_sm = dvc.optional.mobileBreakpoint;
-			   
+
 			   //set variables for chart dimensions dependent on width of #graphic
-				if (parseInt(graphic.style("width")) < threshold_sm) {        	
-						var margin = {top: dvc.optional.margin_sm[0], right: dvc.optional.margin_sm[1], bottom: dvc.optional.margin_sm[2], left: dvc.optional.margin_sm[3]}; 
+				if (parseInt(graphic.style("width")) < threshold_sm) {
+						var margin = {top: dvc.optional.margin_sm[0], right: dvc.optional.margin_sm[1], bottom: dvc.optional.margin_sm[2], left: dvc.optional.margin_sm[3]};
 						var chart_width = parseInt(graphic.style("width")) - margin.left - margin.right;
-						var height = dvc.essential.barHeight_sm_md_lg[0] +0 - margin.top - margin.bottom;
+						var height = dvc.essential.height_sm_md_lg[0] +0 - margin.top - margin.bottom;
 				} else if (parseInt(graphic.style("width")) < threshold_md){
-						var margin = {top: dvc.optional.margin_md[0], right: dvc.optional.margin_md[1], bottom: dvc.optional.margin_md[2], left: dvc.optional.margin_md[3]}; 
+						var margin = {top: dvc.optional.margin_md[0], right: dvc.optional.margin_md[1], bottom: dvc.optional.margin_md[2], left: dvc.optional.margin_md[3]};
 						var chart_width = parseInt(graphic.style("width")) - margin.left - margin.right;
-						var height = dvc.essential.barHeight_sm_md_lg[0] +0 - margin.top - margin.bottom;
+						var height = dvc.essential.height_sm_md_lg[1] +0 - margin.top - margin.bottom;
 				} else {
 						var margin = {top: dvc.optional.margin_lg[0], right: dvc.optional.margin_lg[1], bottom: dvc.optional.margin_lg[2], left: dvc.optional.margin_lg[3]}
 						var chart_width = parseInt(graphic.style("width")) - margin.left - margin.right;
-						var height = dvc.essential.barHeight_sm_md_lg[0] +0 - margin.top - margin.bottom;
+						var height = dvc.essential.height_sm_md_lg[2] +0 - margin.top - margin.bottom;
 				}
 
 				var x = d3.scale.linear()
 					.range([ 0, chart_width]);
-				
+
 				var xAxis = d3.svg.axis()
 					.scale(x)
 
 				names.forEach(function(d,i){
 					name = d;
-					
+
 					x.domain(dvc.essential.xAxisScales[i])
-					
+
 					var svg = d3.select("#"+d).append('svg')
 						.attr("class","chart")
         				.style("background-color","#fff")
@@ -201,12 +201,12 @@
 				        .attr("height", height + margin.top + margin.bottom )
 				        .append("g")
 				        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-						 						 
-					svg.append('g').attr("class","bars").selectAll('rect') 
+
+					svg.append('g').attr("class","bars").selectAll('rect')
 						.data(graphic_data)
 						.enter()
 						.append('rect')
-						.attr("fill","grey")						
+						.attr("fill","grey")
 						.attr("class",function(d,i){
 							if(d.AREACD != "England"){
 								return d.AREACD + " hoverbar allbars"
@@ -216,67 +216,67 @@
 						})
 						.attr("id",function(d,i){
 							return d.AREACD
-						})					
+						})
 						.attr("stroke-width",10)
 						.attr("stroke","rgba(1,1,1,0)")
 						.attr("opacity","0.3")
-						.attr("width", 1)		
+						.attr("width", 1)
 						.attr("x", function(d){
 							if(d[name] !="null"){
 								return x(d[name]);
 							}
-						})	
+						})
 						.style("display", function(d){
 							if(d[name] =="null"){
 								return "none";
 							}
-						})			
+						})
 						.attr("y",0)
 						.attr("height", 30)
 						.on("mouseover", highlight)
 						.on("mouseout", unhighlight)
-						
+
 					svg.append('g').attr("class","englandText")
-						.selectAll('text') 
+						.selectAll('text')
 						.data(graphic_data)
 						.enter()
-						.append('text')	
+						.append('text')
 						.attr("x", function(d){
 							if(d[name] !="null"){
 								return x(d[name])+3;
 							}
-						})			
+						})
 						.attr("y",-8)
 						.text(function(d,j){
 							if(d.AREACD == "England"){
 								return d.AREANM +": "+d3.format(dvc.essential.dataFormats[i])(d[name])
 							}
 						})
-						
+
 					svg.append('g')
 						.append('text')
 						.attr("class","selectedareaText")
-						.attr("x", 4)			
+						.attr("x", 4)
 						.attr("y",43)
 						.style("display", "none")
 						.text("name of area")
-						
+
 				})
-				
+
 				d3.selectAll(".England")
 					.attr("fill","#2c71b8")
 					.attr("opacity","1")
 					.attr("width","2")
 					.attr("y",-10)
 					.attr("height", 40)
-									
-		} //end drawGraphic 
+
+		} //end drawGraphic
 
 
 	 	function highlight(area) {
-			
+
 			selectarea = area.AREACD
-		
+
 			if(selectarea != "England"){
 				d3.selectAll("."+selectarea)
 					.attr("fill", "#e65c00")
@@ -285,22 +285,22 @@
 					.attr("y",0)
 					.attr("height", 40)
 			}
-			
+
 			xPosition = [];
-						
+
 			d3.selectAll(".chart")
 				.selectAll("."+selectarea)
 				.each(function(){
 					xPosition.push(d3.select(this).attr("x"))
-					
+
 				})
-			
+
 			d3.selectAll(".chart")
-				.each(function(d,i){ 
+				.each(function(d,i){
 					sectionName = d3.select(this.parentNode).attr("id");
-									
+
 					d3.select(this).select(".selectedareaText")
-						.attr("x", (+xPosition[i])+4)			
+						.attr("x", (+xPosition[i])+4)
 						.attr("y",43)
 						.style("display", "block")
 						.text(function(d,j){
@@ -310,15 +310,15 @@
 							} else {
 								return area.AREANM+": Data not available"
 							}
-							
-							
+
+
 						})
 				})
-				
+
 			$("#areaselect").val(selectarea);
 			$("#areaselect").trigger("chosen:updated");
 		}
-		
+
 
 		/* Remove the current selected polygon */
 		function unhighlight() {
@@ -327,37 +327,37 @@
 				.attr("opacity","0.3")
 				.attr("y",0)
 				.attr("height", 30)
-				
+
 			d3.selectAll(".England")
 					.attr("fill","#2c71b8")
 					.attr("opacity","1")
 					.attr("width","2")
 					.attr("y",-10)
 					.attr("height", 40)
-					
+
 			d3.selectAll(".selectedareaText")
 						.style("display", "none")
-						
+
 			$("#areaselect").val("");
 			$("#areaselect").trigger("chosen:updated");
 		}
 
 if (Modernizr.svg) {
-   //load config 
+   //load config
 	d3.json("config.json", function(error, config) {
 
-	
+
 	dvc=config
 
 		//load chart data
 		d3.csv( dvc.essential.graphic_data_url, function(error, data) {
 				graphic_data = data;
-	
+
 				names = d3.keys(/*data*/graphic_data[0])
-							.filter(function(key) { 
-								return key !== "AREACD" && key !== "AREANM"; 
+							.filter(function(key) {
+								return key !== "AREACD" && key !== "AREANM";
 							});
-				
+
 				//use pym to create iframed chart dependent on specified variables
 				pymChild = new pym.Child({ renderCallback: createStructure});
 			});
