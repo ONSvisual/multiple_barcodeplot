@@ -42,7 +42,6 @@ These contain the main variables which the chart will need and will possibly nee
 Sets the text and link for the source.
 
 
-
 ```"highlight":"England"```sets the line to highlight, e.g. England average.
 
 
