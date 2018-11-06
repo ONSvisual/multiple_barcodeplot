@@ -59,7 +59,7 @@ Sets the line to highlight, e.g. England average.
 "Adult day care attended",
 "Unpaid care",
 "Satistfaction with care"
-			]
+]
 ```
 Sets the titles for each barcode
 
@@ -71,7 +71,7 @@ Sets the titles for each barcode
 ": per 100,000 population aged 18+",
 ": number of unpaid care providers?",
 ": % extremely or very satisfied"
-			],
+],
 ```
 Sets the unit for each barcode
 
@@ -93,7 +93,7 @@ Sets the height for each barcode at different screen sizes. The first number cor
 [0,1150],
 [7000,22000],
 [0.45,1.06]
-			]
+]
 ```
 Sets the x-axis for each barcode
 
