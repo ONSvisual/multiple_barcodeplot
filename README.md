@@ -31,9 +31,7 @@ Open the `config.json` file with your favourite text editor.
 
 These contain the main variables which the chart will need and will possibly need changing for each new chart.
 
-```"graphic_data_url": "data.csv" ```
-
-points to the file that has the data. 
+```"graphic_data_url": "data.csv" ``` points to the file that has the data. 
 
 
 
@@ -45,10 +43,7 @@ Sets the text and link for the source.
 
 
 
-```
-"highlight":"England"
-```
-Sets the line to highlight, e.g. England average.
+```"highlight":"England"``` sets the line to highlight, e.g. England average.
 
 
 ```
