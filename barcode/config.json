@@ -28,7 +28,6 @@
 				".3p"
 			],
       "height_sm_md_lg" : [70,70,70],
-      "xAxisLabel":"",
 			"xAxisScales":[
 				[0,30],
 				[1000,34000],
@@ -43,14 +42,8 @@
             "margin_sm": [20, 0, 20, 0],
             "margin_md": [20, 0, 20, 0],
             "margin_lg": [20, 0, 20, 0],
+            "mobileBreakpoint" : 550
 
-            "aspectRatio_sm" : [1,1],
-            "aspectRatio_md" : [1,1],
-            "aspectRatio_lg" : [1,1],
-
-            "mobileBreakpoint" : 550,
-
-            "x_num_ticks_sm_md_lg" : [0,0,0]
 
     }
 }
