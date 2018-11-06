@@ -16,6 +16,8 @@ The data should be in the following format
 | E06000002 | Middlesbrough        | 13.83        | 9159     |
 | E06000003 | Redcar and Cleveland | 10.91        | 10279    |
 | E06000004 | Stockton-on-Tees     | 9.56         | 7065     |
+| ... | ... | ... | ... |
+| England | England | 7.81 |5046|
 
 
 
@@ -33,10 +35,19 @@ These contain the main variables which the chart will need and will possibly nee
 
 points to the file that has the data. 
 
+
+
 ```  "sourceText":["The spatial distribution of industries in Great Britain: 2015"],
 "sourceURL":["https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/employmentandemployeetypes/articles/thespatialdistributionofindustriesingreatbritain/2015"],
 ```
 Sets the text and link for the source.
+
+
+
+```"highlight":"England"```
+Sets the line to highlight, e.g. England average.
+
+
 
 ```
 "chartTitles":[

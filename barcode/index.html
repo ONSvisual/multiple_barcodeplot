@@ -115,7 +115,7 @@
 					.enter()
 					.append("option")
 					.filter(function(d,i){
-						if(d[1] != "England"){
+						if(d[1] != dvc.essential.highlight){
 							return d;
 						}
 					})
@@ -208,7 +208,7 @@
 						.append('rect')
 						.attr("fill","grey")
 						.attr("class",function(d,i){
-							if(d.AREACD != "England"){
+							if(d.AREACD != dvc.essential.highlight){
 								return d.AREACD + " hoverbar allbars"
 							} else {
 								return d.AREACD + " allbars"
@@ -248,7 +248,7 @@
 						})
 						.attr("y",-8)
 						.text(function(d,j){
-							if(d.AREACD == "England"){
+							if(d.AREACD == dvc.essential.highlight){
 								return d.AREANM +": "+d3.format(dvc.essential.dataFormats[i])(d[name])
 							}
 						})
@@ -263,7 +263,7 @@
 
 				})
 
-				d3.selectAll(".England")
+				d3.selectAll("."+dvc.essential.highlight)
 					.attr("fill","#2c71b8")
 					.attr("opacity","1")
 					.attr("width","2")
@@ -277,7 +277,7 @@
 
 			selectarea = area.AREACD
 
-			if(selectarea != "England"){
+			if(selectarea != dvc.essential.highlight){
 				d3.selectAll("."+selectarea)
 					.attr("fill", "#e65c00")
 					.attr("opacity","1")
@@ -328,7 +328,7 @@
 				.attr("y",0)
 				.attr("height", 30)
 
-			d3.selectAll(".England")
+			d3.selectAll("."+dvc.essential.highlight)
 					.attr("fill","#2c71b8")
 					.attr("opacity","1")
 					.attr("width","2")

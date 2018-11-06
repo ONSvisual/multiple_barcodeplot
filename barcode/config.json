@@ -1,9 +1,10 @@
 {
     "essential" : {
-            "graphic_data_url": "data.csv",
-            "sourceText":["The spatial distribution of industries in Great Britain: 2015"],
-            "sourceURL":["https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/employmentandemployeetypes/articles/thespatialdistributionofindustriesingreatbritain/2015"],
-			"chartTitles":[
+      "graphic_data_url": "data.csv",
+      "sourceText":["The spatial distribution of industries in Great Britain: 2015"],
+      "sourceURL":["https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/employmentandemployeetypes/articles/thespatialdistributionofindustriesingreatbritain/2015"],
+      "highlight":"England",
+      "chartTitles":[
 				"Care home beds",
 				"Adult social care jobs",
 				"Adult home care received",
@@ -37,13 +38,12 @@
 				[0.45,1.06]
 			]
 
+
     },
     "optional" : {
             "margin_sm": [20, 0, 20, 0],
             "margin_md": [20, 0, 20, 0],
             "margin_lg": [20, 0, 20, 0],
             "mobileBreakpoint" : 550
-
-
     }
 }
